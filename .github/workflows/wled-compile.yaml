@@ -30,8 +30,8 @@ jobs:
         cd `cat /tmp/WLEDtemp/wledfoldername`
         npm install
         echo '[env:custom_build]' >>platformio.ini
-        echo 'extends = env:esp32c3dev' >>platformio.ini
-        echo 'build_flags = ${env:esp32c3dev.build_flags} -D WLED_DISABLE_BROWNOUT_DET -D LOLIN_WIFI_FIX' >>platformio.ini
+        echo 'extends = env:esp32s3dev_8MB_PSRAM_opi' >>platformio.ini
+        echo 'build_flags = ${env:esp32s3dev_8MB_PSRAM_opi.build_flags} -D WLED_DISABLE_BROWNOUT_DET -D LOLIN_WIFI_FIX -D WLED_ENABLE_MQTT -D WLED_ENABLE_LOXONE -D WLED_ENABLE_WEBSOCKETS -D WLED_ENABLE_ADALIGHT -D WLED_ENABLE_PIXART' >>platformio.ini
         
         pio run -e custom_build || pio run -e custom_build
     - name: Copy Files
